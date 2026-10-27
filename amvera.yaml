@@ -1,0 +1,11 @@
+# Amvera Cloud — Контур 2: сайт мероприятий (статика + Python-сервер, без зависимостей)
+# Формат согласно официальной документации: https://docs.amvera.ru/applications/environments/python-pip.html
+meta:
+  environment: python
+  toolchain:
+    name: pip
+    version: "3.11"
+
+run:
+  scriptName: server.py
+  containerPort: 8080
