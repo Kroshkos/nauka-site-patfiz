@@ -297,6 +297,11 @@ function vOrg(){
       <div class="m-cell">${IC.dl}<div><span>Аналитика</span><b>Явка и popularity</b></div></div>
     </div>
     <p class="m-desc" style="margin-top:18px">Мероприятия публикуются через единую систему учёта научной работы (Контур&nbsp;1). Кафедра создаёт событие в модуле «Мероприятия», оно автоматически появляется здесь с формой регистрации. Заявки участников возвращаются в Контур 1 и учитываются в отчётах подразделения.</p>
+    <div class="m-info" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:16px">
+      <div class="m-cell">${IC.dl}<div><span>Открытый фид для систем</span><b>GET /events.json</b></div></div>
+      <div class="m-cell">${IC.bld}<div><span>Прокси-агрегатор</span><b>Контур 1 · GET /api/events</b></div></div>
+    </div>
+    <p class="m-desc" style="margin-top:10px;font-size:13px">Каталог мероприятий выгружается в машиночитаемом формате <code>events.json</code> — Контур&nbsp;1 забирает его по расписанию (кэш 5&nbsp;мин) и строит сводные отчёты участия подразделений.</p>
     <div class="sec-t"><h2>Статистика по форматам</h2></div>
     <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
       ${Object.entries(TYPES).map(([k,v])=>`<div class="m-cell"><span class="dot" style="width:12px;height:12px;border-radius:50%;background:${v.color}"></span><div><span>${v.name}</span><b>${byType[k]||0} мероприятий</b></div></div>`).join('')}

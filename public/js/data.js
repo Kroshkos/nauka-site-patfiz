@@ -35,3 +35,24 @@ const FEED = [
   {t:'вчера',     txt:'Семинар кафедры патфизиологии достиг лимита мест (45/45)', ic:'check'},
   {t:'2 дня назад',txt:'Открыт приём заявок на конкурс «Наука. Медицина. Инновации»', ic:'trophy'},
 ];
+
+/* ============ Экспорт для Контура 1 (nauka-sistem-patfiz) ============ */
+// Контур 1 получает мероприятия как window.NAUKA_EVENTS или GET /events.json
+window.NAUKA_EVENTS = EVENTS.map(e => ({
+  id: e.id,
+  title: e.title,
+  date: e.date,
+  time: e.time,
+  place: e.place,
+  type_id: e.type,
+  type_name: TYPES[e.type].name,
+  color: TYPES[e.type].color,
+  organizer: e.org,
+  capacity: e.cap,
+  registered: e.reg,
+  online: !!e.online,
+  status: e.reg >= e.cap ? 'full' : (e.reg > 0 ? 'open' : 'announce'),
+  year: +e.date.slice(0, 4),
+}));
+
+// Дамп events.json при сборке не нужен — файл обновляется вручную/CI синхронно с EVENTS
