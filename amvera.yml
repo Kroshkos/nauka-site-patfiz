@@ -1,0 +1,17 @@
+setup:
+  go: "off"
+  python: "off"
+  nodesource: "off"
+  php: "off"
+  ruby: "off"
+  permissions: regular
+build:
+  commands:
+    - echo "static site, no build needed"
+run:
+  type: container
+  path: .
+  shell: true
+  args: daemon off
+dockerfile: Dockerfile
+language: docker
