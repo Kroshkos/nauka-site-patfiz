@@ -1,6 +1,9 @@
+meta:
+  module: naumenko-ps/amvera-runtime-python
+  runtime: python3.11
 setup:
   go: "off"
-  python: "off"
+  python: "3.11"
   nodesource: "off"
   php: "off"
   ruby: "off"
@@ -9,9 +12,7 @@ build:
   commands:
     - echo "static site, no build needed"
 run:
-  type: container
-  path: .
-  shell: true
-  args: daemon off
-dockerfile: Dockerfile
-language: docker
+  type: python
+  path: server.py
+  shell: false
+port: 8080

@@ -16,13 +16,13 @@
 
 ## Структура
 ```
-public/            # статический сайт (nginx на Amvera)
+public/            # статический сайт (раздаётся server.py на Amvera)
 ├── index.html     # точка входа SPA
 ├── css/style.css  # дизайн-система (единая с Контуром 1)
 ├── js/data.js     # данные мероприятий, типы, организаторы
 ├── js/app.js      # рендер, роутинг, регистрация, избранное, календарь
 └── assets/legacy-demo.html  # прежняя демо-версия
-Dockerfile · amvera.yml      # деплой nginx:alpine :8080
+server.py · amvera.yml       # python-статика, порт 8080
 demo/                        # исходное демо из общего репозитория
 ```
 
@@ -33,7 +33,7 @@ cd public && python3 -m http.server 8080
 ```
 
 ## Деплой на Amvera
-Репозиторий импортирован в Amvera — сборка через `Dockerfile` (nginx), порт 8080. Push в `main` = автодеплой.
+Репозиторий импортирован в Amvera — запуск через `server.py` (Python http.server), порт 8080. Push в `main` = автодеплой.
 
 ## Roadmap
 - Бэкенд приёма заявок (API + хранение, подтверждение e-mail)
