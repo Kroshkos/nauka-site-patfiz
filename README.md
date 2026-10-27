@@ -44,5 +44,5 @@ cd public && python3 -m http.server 8080
 Каталог мероприятий доступен в машиночитаемом виде:
 
 - **`GET /events.json`** — статический фид (12+ событий: id, title, date, type, capacity, registered, status…).
-- Фид генерируется из `public/js/data.js`; при изменении данных GitHub Actions (`sync-events.yml`) автоматически пересобирает `events.json`.
+- Фид генерируется из `public/js/data.js`; при изменении данных скрипт `ci/sync-events.js.sh` перегенерирует `events.json` (запускается локально или на этапе сборки).
 - Контур 1 (`nauka-sistem-patfiz.waw0.amvera.tech/api/events`) проксирует этот фид с кэшем 5 минут и fallback-набором, отображает живые данные на странице «Мероприятия» и включает их в отчёты подразделений.
